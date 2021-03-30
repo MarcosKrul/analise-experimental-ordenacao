@@ -29,5 +29,15 @@ int randomInteger(int,int);
 void strings_aleatorias(char**,int,int);
 
 
+// procedimento utilizado para salvar os dados em 
+// um arquivo .csv
+// primeiro parametro (Stats*): ponteiro para a struct com as 
+// informacoes que serao gravadas
+// segundo parametro (int): tamanho do vetor ordenado
+// terceiro parametro (int): quantidade de digitos dos valores
+// do vetor ordenado
+void gravar_arq_dados(Stats*,int,int);
+
+
 
 #endif
