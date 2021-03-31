@@ -16,10 +16,8 @@ class Plot:
         for i in range(len(self.__filter)):
             self.__data.append(self.__dataframe.where(self.__filter[i]).mean())
 
-    def close(self):
-        plt.close()
-
-    def render(self):
+    def render(self, bubble=True, quick=True, digital=True):
+        legends = []
 
         plt.grid(True)
 
@@ -28,34 +26,42 @@ class Plot:
         plt.ylabel('Tempo de execução (s)')
         plt.xlabel('Tamanho da entrada (adimensional)')
 
-        legend_quick, = plt.plot(
-            DataFrame(self.__data)['quantidade'],
-            DataFrame(self.__data)['quick'],
-            marker='o',
-            markersize=4,
-            color='blue',
-            linestyle='--',
-            label='Bubble Sort'
-        )
-        legend_bubble, = plt.plot(
-            DataFrame(self.__data)['quantidade'],
-            DataFrame(self.__data)['bubble'],
-            marker='o',
-            markersize=4,
-            color='red',
-            linestyle='--',
-            label='Quick Sort'
-        )
-        legend_digital, = plt.plot(
-            DataFrame(self.__data)['quantidade'],
-            DataFrame(self.__data)['digital'],
-            marker='o',
-            markersize=4,
-            color='green',
-            linestyle='--',
-            label='Ordenação digital'
-        )
+        if quick:
+            legend_quick, = plt.plot(
+                DataFrame(self.__data)['quantidade'],
+                DataFrame(self.__data)['quick'],
+                marker='o',
+                markersize=4,
+                color='blue',
+                linestyle='--',
+                label='Quick Sort'
+            )
+            legends.append(legend_quick)
 
-        plt.legend(handles=[legend_bubble, legend_quick, legend_digital])
+        if bubble:
+            legend_bubble, = plt.plot(
+                DataFrame(self.__data)['quantidade'],
+                DataFrame(self.__data)['bubble'],
+                marker='o',
+                markersize=4,
+                color='red',
+                linestyle='--',
+                label='Bubble Sort'
+            )
+            legends.append(legend_bubble)
+
+        if digital:
+            legend_digital, = plt.plot(
+                DataFrame(self.__data)['quantidade'],
+                DataFrame(self.__data)['digital'],
+                marker='o',
+                markersize=4,
+                color='green',
+                linestyle='--',
+                label='Ordenação digital'
+            )
+            legends.append(legend_digital)
+
+        plt.legend(handles=legends)
 
         plt.show()
