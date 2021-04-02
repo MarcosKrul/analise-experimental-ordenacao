@@ -10,7 +10,7 @@ class Plot:
 
         self.__dataframe = read_csv(f'./../../tmp/log_{t}.csv', delimiter=';')
 
-        for i in range(low, high, incr):
+        for i in range(low, high+1, incr):
             self.__filter.append(self.__dataframe['quantidade'] == i)
 
         for i in range(len(self.__filter)):

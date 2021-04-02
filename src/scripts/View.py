@@ -73,7 +73,7 @@ class View:
                     continue
 
                 if events == 'Testar':
-                    for i in range(self.__inicial, self.__final, self.__incr):
+                    for i in range(self.__inicial, self.__final+1, self.__incr):
                         self.__c.execute(i, self.__tamanho, i)
 
                     plot = Plot(
