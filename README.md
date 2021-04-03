@@ -60,3 +60,37 @@ Linux
     cd src/scripts
     python script.py
 ```
+
+## Alterações
+
+Caso haja mudanças no código em C, a dll deve ser gerada novamente.
+Na raíz do projeto, execute:
+```
+    gcc -shared -o ./src/lib/execute.dll -fPIC ./src/execute.c
+```
+
+## Resultados
+
+* Interface principal
+
+![Interface principal](https://github.com/MarcosKrul/analise-experimental-ordenacao/blob/main/tmp/images/interface.png)
+
+* Comparação entre quicksort e ordenação digital para 5 dígitos
+
+![Quicksort e ordenação digital para 5 dígitos](https://github.com/MarcosKrul/analise-experimental-ordenacao/blob/main/tmp/images/quick-digital-5d.png)
+
+* Comparação entre quicksort e ordenação digital para 10 dígitos
+
+![Quicksort e ordenação digital para 10 dígitos](https://github.com/MarcosKrul/analise-experimental-ordenacao/blob/main/tmp/images/quick-digital-10d.png)
+
+* Comparação entre quicksort e ordenação digital para 15 dígitos
+
+![Quicksort e ordenação digital para 15 dígitos](https://github.com/MarcosKrul/analise-experimental-ordenacao/blob/main/tmp/images/quick-digital-15d.png)
+
+### Para visualizar os mesmos gráficos (para 5, 10 ou 15 dígitos)
+
+Tamanho inicial: 10000
+
+Tamanho final: 500000
+
+Incremento/passo: 10000
