@@ -8,6 +8,8 @@ class Plot:
         self.__data = []
         self.__filter = []
 
+        self.__digitos = t
+
         self.__dataframe = read_csv(f'./../../tmp/log_{t}.csv', delimiter=';')
 
         for i in range(low, high+1, incr):
@@ -21,10 +23,12 @@ class Plot:
 
         plt.grid(True)
 
-        plt.title('Comparação entre métodos de ordenação')
+        plt.title(
+            f'Comparação entre métodos de ordenação para {self.__digitos} dígitos'
+        )
 
         plt.ylabel('Tempo de execução (s)')
-        plt.xlabel('Tamanho da entrada (adimensional)')
+        plt.xlabel('Tamanho da entrada')
 
         if quick:
             legend_quick, = plt.plot(
