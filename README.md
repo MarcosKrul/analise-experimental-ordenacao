@@ -58,7 +58,7 @@ Linux
 
 ```
     cd src/scripts
-    python script.py
+    python index.py
 ```
 
 ## Alterações
